@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<!--
+Copyright (c) 2013 The Chromium Authors. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be
+found in the LICENSE file.
+-->
+<head>
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="-1">
+  <title>socket</title>
+  <script type="text/javascript" src="common.js"></script>
+  <script type="text/javascript" src="example.js"></script>
+</head>
+<body data-name="socket" data-tools="pnacl newlib glibc clang-newlib linux" data-configs="Debug Release" data-path="{tc}/{config}">
+  <h1>socket</h1>
+  <h2>Status: <code id="statusField">NO-STATUS</code></h2>
+
+  <div>
+    <h2>Create a local server:</h2>
+    <p>The "Listen" button can be used create a local TCP or UDP echo server
+    listenting on the port specified. Once started this server can be connected
+    to by entering <code>localhost:&lt;port&gt;<br> above.
+    </p>
+    <p>
+    <form id="listenForm">
+      <select id="listen_type">
+        <option value="tcp">TCP</option>
+        <option value="udp">UDP</option>
+      </select>
+      Port:
+      <input type="text" id="port" value="8080" size="6">
+      <input type="submit" value="Listen">
+    </form>
+    </p>
+  </div>
+
+  <pre id="log" style="font-weight: bold"></pre>
+  <div id="listener"></div>
+
+
+  <div style="display: none;">
+  <form id="connectForm">
+    <select id="connect_type">
+      <option value="tcp">TCP</option>
+      <option value="udp">UDP</option>
+    </select>
+    <input type="text" id="hostname" size="25"
+      value="google.com:80">
+    <input type="submit" value="Connect">
+  </form>
+
+  <form id="sendForm">
+    <input type="text" id="message" value="GET / HTTP/1.1\n\n" size="50">
+    <input type="submit" value="Send">
+  </form>
+  <button id="closeButton">Close</button>
+  </div>
+
+</body>
+</html>
